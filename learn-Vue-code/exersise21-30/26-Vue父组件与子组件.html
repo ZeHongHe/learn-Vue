@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>father component and children component</title>
+</head>
+<body>
+    <script src="../vue.js"></script>
+
+    <div id="app">
+        <!-- 使用组件 -->
+        <cpn2></cpn2>
+    </div>
+
+    <template id="cpnP">
+        <div>
+            <span>Hello Vue Father component!</span>
+            <cpn1></cpn1>
+        </div>
+    </template>
+
+    <template id="cpnC">
+        <div>
+            <span>└─ Hello Vue Children component!</span>
+            <cpn1></cpn1>
+        </div>
+    </template>
+
+    <script>
+        // cpnC1: 子组件构造器
+        const cpnC1  = Vue.extend({
+            template: "#cpnC",
+        });
+
+        // cpnC2: 父组件构造器
+        const cpnC2  = Vue.extend({
+            template: "#cpnP",
+            components: {
+                // 父组件中注册子组件
+                cpn1: cpnC1,
+            }
+        });
+
+        // app:一个通过 new Vue 创建的根 Vue 实例, 也可看作是根组件
+        const app = new Vue({
+            el: "#app",
+            data: {},
+            components: {
+                // 注册父组件
+                cpn2: cpnC2,
+            }
+        });
+
+    </script>
+</body>
+</html>

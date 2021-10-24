@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>计数器</title>
+	<script src="../vue.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+	<!-- MVVM 架构 -->
+	
+	<!-- View 层 -->
+	<div id="counter">
+		<h2>当前计数：{{number}}</h2>
+		<button id="plus" v-on:click="numPlus">+</button>
+		<button id="minus" v-on:click="numMinus">-</button>
+	</div>
+	
+	<script type="text/javascript">
+	
+		// Model 层
+		const obj = {
+				number: 0
+			}
+			
+		/* ViewModel 层：
+		 * 把 View 层和 Model 层联系起来
+		 * 首先，ViewModel 通过 Data Binding 让 obj 中的数据实时地在 DOM 中显示
+		 * 其次，ViewModel 通过 DOM listener 来监听DOM 事件，并通过 Methods 中的操作，来改变 obj 中的数据
+		 * 这里的 ViewModel 即 Vue 框架创建出的一个实例
+		 */ 
+		const app = new Vue({
+			// 此处有一层代理 Proxy（ this 的指向？）
+			el: '#counter',
+			// 等价于："el: document.querySelector('#counter'),"
+			data: obj,
+			methods: {
+				numPlus : function() {
+					this.number++;
+				},
+				numMinus : function() {
+					this.number--;
+				}
+			}
+		}) 
+		
+		
+		//// JavaScript实现（ 要在 h2 中加上 <p style='display:inline-block'></p>）
+		// const btnPlus = document.querySelector('#plus');
+		// const btnMinus = document.querySelector('#minus');
+		// let number = document.querySelector('p');
+		
+		// number.textContent = 0;
+		
+		// btnPlus.onclick = function() {
+		// 	number.textContent = eval(number.textContent + '+1')
+		// }
+		// btnMinus.onclick = function() {
+		// 	number.textContent = eval(number.textContent + '-1')
+		// }
+	</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Vue插值</title>
+	<script src="../vue.js" type="text/javascript" charset="utf-8"></script>
+	<style>
+		[v-cloak] {
+		  display: none;
+		}
+	</style>
+	<!--插值指令：
+		v-once: 只渲染元素和组件一次
+		v-html: 内容按普通 HTML 插入 - 不会作为 Vue 模板进行编译
+		v-text: 更新元素的 textContent(较少用)
+		v-pre: 跳过这个元素和它的子元素的编译过程
+		v-cloak: 这个指令保持在元素上直到关联实例结束编译。 
+	-->
+</head>
+<body>
+	<!-- mustache 语法可以写入变量与表达式 -->
+	<div id="app" v-cloak>{{action + ' ' + item + '!'}}</div>
+
+	<script type="text/javascript">
+	setTimeout(function() {
+		const app = new Vue({
+			el: '#app',
+			data: {
+				action: 'Hello ',
+				item: 'Vue'
+			}
+		})
+	},1000)
+		
+	</script>
+</body>
+</html>

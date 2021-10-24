@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parent and root</title>
+</head>
+<body>
+    <script src="../vue.js"></script>
+
+    <div id="app">
+        <child-cpn></child-cpn>
+    </div>
+
+    <template id="childCpn">
+        <div>
+            <span>I am child component!</span>
+            <button @click="btnClick_c_parent">button:$parent</button>
+            <button @click="btnClick_c_root">button:$root</button><br>
+            <child-child-cpn></child-child-cpn>
+        </div>
+    </template>
+
+    <template id="childChildCpn">
+        <div>
+            <span>└─ I am child child component!</span>
+            <button @click="btnClick_cc_parent">button:$parent</button>
+            <button @click="btnClick_cc_root">button:$root</button><br>
+        </div>
+    </template>
+
+    <script>
+        // $parent: not recommend！ because we should keep the reusable of component in development...
+        // $root: not recommend! because Vue usually has nothing in development...
+        const childChildCpn = {
+            template: "#childChildCpn",
+            methods: {
+                btnClick_cc_parent() {
+                    console.log(this.$parent);
+                    console.log(this.$parent.message);
+                },
+                btnClick_cc_root() {
+                    console.log(this.$root);
+                    console.log(this.$root.message);
+                }
+            },
+        }
+
+        const childCpn = {
+            template: "#childCpn",
+            data() {
+                return { message: "Hello child cpn!" }
+            },
+            methods: {
+                btnClick_c_parent() {
+                    console.log(this.$parent);
+                    console.log(this.$parent.message);
+                },
+                btnClick_c_root() {
+                    console.log(this.$root);
+                    console.log(this.$root.message);
+                }
+            },
+            components: {
+                "child-child-cpn": childChildCpn,
+            }
+        }
+
+        const app = new Vue({
+            el: "#app",
+            data: {
+                message: "Hello Vue!",
+            },
+            components: {
+                "child-cpn": childCpn,
+            }
+        })
+
+    </script>
+</body>
+</html>
