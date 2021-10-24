@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slot scope</title>
+</head>
+<body>
+    <script src="../vue.js"></script>
+
+    <div id="app">
+        <child-cpn>
+            <template slot-scope="slot">
+                <span>{{slot.data.join(" - ")}}</span>
+            </template>
+        </child-cpn>
+    </div>
+
+    <template id="childCpn">
+        <div>
+            <slot :data="pteches">
+                <ul>
+                    <li v-for="(item,index) in pteches">{{index + 1}}.{{item}}</li>
+                </ul>
+            </slot>
+        </div>
+    </template>
+
+    <script>
+        const childCpn = {
+            template: "#childCpn",
+            data() {
+                return {
+                    pteches: ['HTML', 'CSS', 'JavaScript', 'React', 'Vue']
+                } 
+            }
+        };
+        const app = new Vue({
+            el: "#app",
+            data: { },
+            components: {
+                "child-cpn": childCpn,
+            }
+        });
+    </script>
+</body>
+</html>

@@ -10,12 +10,14 @@
     <script src="../vue.js"></script>
 
     <div id="app">
-        <child-cpn></child-cpn>
+        <child-cpn><p slot="left">左</p></child-cpn>
     </div>
 
     <template id="childCpn">
         <div>
-            <slot></slot>
+            <slot name="left"><p>left</p></slot>
+            <slot name="middle"><p>middle</p></slot>
+            <slot name="right"><p>right</p></slot>
         </div>
     </template>
 
