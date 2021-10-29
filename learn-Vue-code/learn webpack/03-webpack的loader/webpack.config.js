@@ -18,6 +18,23 @@ module.exports = {
                 // webpack 在读取使用多个 loader 时，应用顺序是从右往左，注意多个 loader 的顺序
                 use: ['style-loader', 'css-loader']
             },
+            {
+                // 加载 less
+                test: /\.less$/,
+                use: [{ loader: "style-loader" }, { loader: "css-loader" }, { loader: "less-loader" }],
+            },
+            {
+                // 转 es5
+                test: /\.js$/,
+                // 排除 node_modules 的内容
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ['es2015']
+                    }
+                }
+            },
         ]
     }
 }
