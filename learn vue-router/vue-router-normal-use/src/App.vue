@@ -1,14 +1,16 @@
 <template>
   <div id="app">
-    <router-link to="/home" tag="button" replace>home</router-link>
-    <router-link to="/about" tag="button" replace>about</router-link>
-<!--    传递动态路径的参数 ‘userId’ -->
-    <router-link :to="'/user/' + userId" tag="button" replace>user</router-link>
-<!--    <router-link> : 最终会被渲染成 <a>-->
-<!--    <button @click="homeClick">首页</button>-->
-<!--    <button @click="aboutClick">关于</button>-->
-    <router-view></router-view>
-<!--    <router-view> : link 映射对应的组件，最终渲染的地方-->
+    <p>Single Page Application</p>
+      <div class="box">
+      <router-link to="/home" tag="button" replace>home</router-link>
+      <router-link to="/about" tag="button" replace>about</router-link>
+  <!--    传递动态路径的参数 ‘userId’ -->
+      <router-link :to="'/user/' + userId" tag="button" replace>user</router-link>
+  <!--    URL: "scheme://useinfo@host:port/path?query#fragment"-->
+      <router-link :to="{ path: '/profile', query: { name: 'Wouter', sex: 'male', age: 20} }" tag="button" replace>profile</router-link>
+
+      <router-view></router-view>
+      </div>
   </div>
 </template>
 
@@ -21,11 +23,15 @@ export default {
       sex: 'male'
     }
   },
+  methods: { }
 }
 </script>
 
 <style>
   .active {
     color: pink;
-}
+  }
+  .box {
+    border: 5px solid pink;
+  }
 </style>

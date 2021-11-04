@@ -2,11 +2,16 @@
 import VueRouter from 'vue-router'
 import Vue from 'vue'
 
-import Home from '../components/Home'
-import About from '../components/About'
-import User from '../components/User'
-import HomeMessage from "../components/HomeMessage";
-import HomeNews from "../components/HomeNews";
+// import Home from '../components/Home'
+// import About from '../components/About'
+// import User from '../components/User'
+
+const Home = () => import('../components/Home')
+const About = () => import('../components/About')
+const User = () => import('../components/User')
+const HomeMessage = () => import('../components/HomeMessage')
+const HomeNews = () => import('../components/HomeNews')
+const Profile = () => import('../components/Profile')
 
 // 1. 通过 vue.use 安装插件
 Vue.use(VueRouter)
@@ -37,6 +42,10 @@ const router = new VueRouter({
       // 动态路径参数 以 ':' 开头
       path: '/user/:userId',
       component: User
+    },
+    {
+      path: '/profile',
+      component: Profile
     }
   ],
   // 改变路径的方式有两种: URL 的 hash 和 HTML5 的 history
