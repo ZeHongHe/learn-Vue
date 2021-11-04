@@ -6,7 +6,7 @@ import Home from '../components/Home'
 import About from '../components/About'
 import User from '../components/User'
 import HomeMessage from "../components/HomeMessage";
-import HomeNews from "../components/HomeMessage";
+import HomeNews from "../components/HomeNews";
 
 // 1. 通过 vue.use 安装插件
 Vue.use(VueRouter)
@@ -20,11 +20,11 @@ const router = new VueRouter({
       component: Home,
       children: [
         {
-          path: '/message',
+          path: 'message',
           component: HomeMessage
         },
         {
-          path: '/news',
+          path: 'news',
           component: HomeNews
         }
       ]
@@ -34,6 +34,7 @@ const router = new VueRouter({
       component: About
     },
     {
+      // 动态路径参数 以 ':' 开头
       path: '/user/:userId',
       component: User
     }

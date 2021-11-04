@@ -1,6 +1,7 @@
 <template>
   <div>
-    <p>{{userId}}</p>
+    <p>hello {{userId}}!</p>
+    <p>hey {{$route.params.userId}}!</p>
     <p>I am User component!</p>
   </div>
 </template>
