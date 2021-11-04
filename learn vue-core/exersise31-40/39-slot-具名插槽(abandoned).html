@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slot 具名插槽</title>
+</head>
+<body>
+    <script src="../vue.js"></script>
+
+    <div id="app">
+        <child-cpn><p slot="left">左</p></child-cpn>
+    </div>
+
+    <template id="childCpn">
+        <div>
+            <slot name="left"><p>left</p></slot>
+            <slot name="middle"><p>middle</p></slot>
+            <slot name="right"><p>right</p></slot>
+        </div>
+    </template>
+
+    <script>
+        const childCpn = {
+            template: "#childCpn",
+        };
+        const app = new Vue({
+            el: "#app",
+            components: {
+                "child-cpn": childCpn,
+            }
+        });
+    </script>
+</body>
+</html>
