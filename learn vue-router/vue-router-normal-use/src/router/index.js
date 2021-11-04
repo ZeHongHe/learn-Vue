@@ -5,6 +5,8 @@ import Vue from 'vue'
 import Home from '../components/Home'
 import About from '../components/About'
 import User from '../components/User'
+import HomeMessage from "../components/HomeMessage";
+import HomeNews from "../components/HomeMessage";
 
 // 1. 通过 vue.use 安装插件
 Vue.use(VueRouter)
@@ -14,12 +16,18 @@ const router = new VueRouter({
   // 配置 router 和 components 之间的映射关系
   routes: [
     {
-      path: '/',
-      redirect: '/home',
-    },
-    {
       path: '/home',
-      component: Home
+      component: Home,
+      children: [
+        {
+          path: '/message',
+          component: HomeMessage
+        },
+        {
+          path: '/news',
+          component: HomeNews
+        }
+      ]
     },
     {
       path: '/about',
