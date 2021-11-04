@@ -21,9 +21,17 @@ const router = new VueRouter({
   // 配置 router 和 components 之间的映射关系
   routes: [
     {
+      path: '/',
+      redirect: '/home'
+    },
+    {
       path: '/home',
       component: Home,
       children: [
+        {
+          path: '/home',
+          redirect: '/home/message'
+        },
         {
           path: 'message',
           component: HomeMessage
