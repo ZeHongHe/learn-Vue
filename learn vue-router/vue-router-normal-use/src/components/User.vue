@@ -16,10 +16,10 @@ export default {
       return this.$route.params.userId
     }
   },
-  created() {
-    console.log('User created');
-    document.title = 'user'
-  },
+  // created() {
+  //   // console.log('User created');
+  //   document.title = 'user'
+  // },
   methods: {
     // btnClick1() {
     //   // 所有的组件都继承自 Vue 类的原型

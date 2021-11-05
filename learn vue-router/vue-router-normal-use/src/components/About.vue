@@ -7,10 +7,10 @@
 <script>
 export default {
   name: "About",
-  created() {
-    console.log('about created');
-    document.title = 'about'
-  },
+  // created() {
+  //   // console.log('about created');
+  //   document.title = 'about'
+  // },
 }
 </script>
 

@@ -9,7 +9,11 @@
   <!--    URL: "scheme://useinfo@host:port/path?query#fragment"-->
       <router-link :to="{ path: '/profile', query: { name: 'Wouter', sex: 'male', age: 20} }" tag="button" replace>profile</router-link>
 
-      <router-view></router-view>
+
+      <keep-alive>
+        <router-view></router-view>
+      </keep-alive>
+
       </div>
   </div>
 </template>

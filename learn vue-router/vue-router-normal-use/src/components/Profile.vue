@@ -8,10 +8,10 @@
 <script>
 export default {
   name: "Profile",
-  created() {
-    console.log('profile created');
-    document.title = 'profile'
-  },
+  // created() {
+  //   // console.log('profile created');
+  //   document.title = 'profile'
+  // },
 }
 </script>
 

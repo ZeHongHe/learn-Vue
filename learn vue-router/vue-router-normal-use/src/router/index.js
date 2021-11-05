@@ -20,10 +20,10 @@ Vue.use(VueRouter)
 const router = new VueRouter({
   // 配置 router 和 components 之间的映射关系
   routes: [
-    {
-      path: '/',
-      redirect: '/home'
-    },
+    // {
+    //   path: '/',
+    //   redirect: '/home'
+    // },
     {
       path: '/home',
       component: Home,
@@ -31,14 +31,14 @@ const router = new VueRouter({
         title: 'home'
       },
       children: [
-        {
-          path: '/home',
-          redirect: '/home/message'
-        },
+        // {
+        //   path: '/home',
+        //   redirect: '/home/message'
+        // },
         {
           path: 'message',
           beforeEnter: (to, from, next) => {
-            console.log('message beforeEnter');
+            // console.log('message beforeEnter');
             next()
           },
           component: HomeMessage
@@ -46,7 +46,7 @@ const router = new VueRouter({
         {
           path: 'news',
           beforeEnter: (to, from, next) => {
-            console.log('news beforeEnter');
+            // console.log('news beforeEnter');
             next()
           },
           component: HomeNews
@@ -86,6 +86,7 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   // from => to
   document.title = to.matched[0].meta.title;
+  // console.log(this.$router);
   // console.log('beforeEach');
   next()
 });
