@@ -7,7 +7,11 @@
 
 <script>
 export default {
-  name: "Profile"
+  name: "Profile",
+  created() {
+    console.log('profile created');
+    document.title = 'profile'
+  },
 }
 </script>
 

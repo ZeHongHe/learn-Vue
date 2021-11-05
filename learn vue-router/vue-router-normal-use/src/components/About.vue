@@ -6,7 +6,11 @@
 
 <script>
 export default {
-  name: "About"
+  name: "About",
+  created() {
+    console.log('about created');
+    document.title = 'about'
+  },
 }
 </script>
 
