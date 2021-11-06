@@ -1,28 +1,40 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+    <tab-bar>
+      <tab-bar-item>
+        <img slot="item-icon" src="./assets/img/tabber/tabbar-home.svg" alt="">
+        <div slot="item-text">Home</div>
+      </tab-bar-item>
+      <tab-bar-item>
+        <img slot="item-icon" src="./assets/img/tabber/tabbar-category.svg" alt="">
+        <div slot='item-text'>category</div>
+      </tab-bar-item>
+      <tab-bar-item>
+        <img slot="item-icon" src="./assets/img/tabber/tabbar-shopCart.svg" alt="">
+        <div slot='item-text'>shopCart</div>
+      </tab-bar-item>
+      <tab-bar-item>
+        <img slot="item-icon" src="./assets/img/tabber/tabbar-profile.svg" alt="">
+        <div slot='item-text'>profile</div>
+      </tab-bar-item>
+    </tab-bar>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+  import TabBar from './components/tabbar/TabBar'
+  import TabBarItem from "./components/tabbar/TabBarItem";
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  export default {
+    name: 'App',
+    components: {
+      TabBar,
+      TabBarItem
+    }
   }
-}
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  @import './assets/css/base.css';
+
 </style>
