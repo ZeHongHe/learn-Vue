@@ -6,7 +6,7 @@
       <div v-else>
         <slot name="item-icon-active"></slot>
       </div>
-      <div :class="{active: isActive}">
+      <div :style="activeStyle">
         <slot name="item-text"></slot>
       </div>
     </div>
@@ -16,11 +16,24 @@
 export default {
   name: "TabBarItem",
   props: {
-    path: String
+    path: String,
+    activeColor: {
+      type: String,
+      default: 'rgb(255,130,0)'
+    }
   },
   data() {
     return {
-      isActive: true
+      // isActive: true
+    }
+  },
+  computed: {
+    isActive() {
+      // indexOf: 判断 $router.path 和 TaBarItem.path 是否相等, 相等则返回 0, 不相等则返回 -1
+      return this.$route.path.indexOf(this.path) !== -1
+    },
+    activeStyle() {
+      return this.isActive ? {color: this.activeColor} : {}
     }
   },
   methods: {
@@ -44,8 +57,5 @@ export default {
     margin-top: 3px;
     vertical-align: middle;
     margin-bottom: 2px;
-  }
-  .tab-bar-item .active {
-    color: rgb(255,130,0);
   }
 </style>
