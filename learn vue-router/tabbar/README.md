@@ -1,4 +1,4 @@
-# tabber
+# tabbar
 
 > A Vue.js project
 
