@@ -1,23 +1,30 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
-  </div>
+    <div>
+        <!-- <p>Hello World!</p> -->
+        <p>{{message}}</p>
+        <p>{{$store.state.counter}}</p>
+        <button @click="$store.state.counter++">+</button>
+        <button @click="$store.state.counter--">-</button>
+        <vuex-counter></vuex-counter>
+    </div>
 </template>
 
 <script>
+import VuexCounter from './components/VuexCounter.vue'
+
 export default {
-  name: 'App'
+  name: 'App',
+  data () {
+    return {
+      message: 'Hello Vuex!'
+    }
+  },
+  components: {
+    VuexCounter
+  }
 }
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
