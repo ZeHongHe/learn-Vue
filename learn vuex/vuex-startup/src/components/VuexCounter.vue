@@ -1,6 +1,8 @@
 <template>
   <div>
-      <p>{{$store.state.counter}}</p>
+      <p>{{message}}: {{$store.state.counter}}</p>
+      <button @click="$store.state.counter++">+</button>
+      <button @click="$store.state.counter--">-</button>
   </div>
 </template>
 
@@ -8,7 +10,9 @@
 export default {
   name: 'VuexCounter',
   data () {
-    return { }
+    return {
+      message: 'component counter'
+    }
   }
 }
 </script>

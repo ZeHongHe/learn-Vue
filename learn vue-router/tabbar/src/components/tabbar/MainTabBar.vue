@@ -8,17 +8,17 @@
     <tab-bar-item path="/category" activeColor="rgb(255,130,0)">
       <img slot="item-icon" src="~assets/img/tabber/tabbar-category.svg" alt="">
       <img slot="item-icon-active" src="~assets/img/tabber/tabbar-category-active.svg" alt="">
-      <div slot='item-text'>category</div>
+      <div slot='item-text'>Category</div>
     </tab-bar-item>
     <tab-bar-item path="/shopCart" activeColor="rgb(255,130,0)">
       <img slot="item-icon" src="~assets/img/tabber/tabbar-shopCart.svg" alt="">
       <img slot="item-icon-active" src="~assets/img/tabber/tabbar-shopCart-active.svg" alt="">
-      <div slot='item-text'>shopCart</div>
+      <div slot='item-text'>ShopCart</div>
     </tab-bar-item>
     <tab-bar-item path="/profile" activeColor="rgb(255,130,0)">
       <img slot="item-icon" src="~assets/img/tabber/tabbar-profile.svg" alt="">
       <img slot="item-icon-active" src="~assets/img/tabber/tabbar-profile-active.svg" alt="">
-      <div slot='item-text'>profile</div>
+      <div slot='item-text'>Profile</div>
     </tab-bar-item>
   </tab-bar>
 </template>

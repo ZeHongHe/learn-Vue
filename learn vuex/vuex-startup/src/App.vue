@@ -1,10 +1,8 @@
 <template>
     <div>
-        <!-- <p>Hello World!</p> -->
-        <p>{{message}}</p>
-        <p>{{$store.state.counter}}</p>
-        <button @click="$store.state.counter++">+</button>
-        <button @click="$store.state.counter--">-</button>
+        <p>{{message}}: {{$store.state.counter}}</p>
+        <button @click="add">+</button>
+        <button @click="sub">-</button><br>
         <vuex-counter></vuex-counter>
     </div>
 </template>
@@ -14,9 +12,17 @@ import VuexCounter from './components/VuexCounter.vue'
 
 export default {
   name: 'App',
+  methods: {
+    add () {
+      this.$store.commit('increment')
+    },
+    sub () {
+      this.$store.commit('decrement')
+    }
+  },
   data () {
     return {
-      message: 'Hello Vuex!'
+      message: 'App counter'
     }
   },
   components: {

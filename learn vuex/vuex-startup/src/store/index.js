@@ -9,7 +9,14 @@ const store = new Vuex.Store({
   state: {
     counter: 0
   },
-  mutations: { },
+  mutations: {
+    increment (state) {
+      state.counter++
+    },
+    decrement (state) {
+      state.counter--
+    }
+  },
   actions: { },
   getters: { },
   modules: { }
