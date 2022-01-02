@@ -7,7 +7,7 @@
 	<title>Vue插值</title>
 	<script src="../vue.js" type="text/javascript" charset="utf-8"></script>
 	<style>
-		[v-cloak] {
+		.v-cloak {
 		  display: none;
 		}
 	</style>
@@ -24,7 +24,6 @@
 	<div id="app" v-cloak>{{action + ' ' + item + '!'}}</div>
 
 	<script type="text/javascript">
-	setTimeout(function() {
 		const app = new Vue({
 			el: '#app',
 			data: {
@@ -32,7 +31,6 @@
 				item: 'Vue'
 			}
 		})
-	},1000)
 		
 	</script>
 </body>
